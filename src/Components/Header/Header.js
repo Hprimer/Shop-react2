@@ -2,9 +2,10 @@ import React from 'react'
 import { FaShoppingCart } from "react-icons/fa";
 
 import './Header.css'
+import { Link } from 'react-router-dom';
 
 
-function Header() {
+function Header({orders, onDelete}) {
 	//let [cartOpen, setCartOpen] = useState(false) //хук состояния, по умолчанию false (корзина закрыта)
 	return (
 	<header className='container'>
@@ -12,10 +13,11 @@ function Header() {
 			<span className='logo col-4'>Happy House</span>
 			
 			<ul className='nav col-8'>
-				<li >О нас</li>
+				<li ><Link to='/'>главная </Link></li>
 				<li>Контакты</li>			
 				<li>Кабинет</li>
-				<li><FaShoppingCart />
+				<li>
+				<Link to="/cart"><FaShoppingCart/>({orders.length})</Link>
 			
 					{/* // onClick={() => setCartOpen(cartOpen = !cartOpen)} 
 					// className={`shop-cart-btn ${cartOpen && 'active'}`}/> */}

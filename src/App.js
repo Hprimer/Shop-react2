@@ -8,6 +8,11 @@ import Footer from './Components/Footer/Footer';
 import Main from "./pages/main/Main";
 import Registration from "./pages/Registration/Registration";
 
+
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Cart from "./pages/Cart/Cart";
+
+
 function App() {
 
   const [items, setItems] = useState([]); // Все товары
@@ -53,15 +58,20 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Registration/> */}
+      {/* <Registration/>
       <Header orders={orders} onDelete={deleteOrder} />
-      <Main onChoose={chooseCategory} items={currentItems} onAdd={addOrder}/>
-      {/* <Presentation/>
-      <div className='categ_items container'>
-        <Categories onChoose={chooseCategory} />
-        <Items items={currentItems} onAdd={addOrder} />
-      </div> */}
-      <Footer />
+      <Main onChoose={chooseCategory} items={currentItems} onAdd={addOrder}/> */}
+
+      <Router>
+      <div className="App">
+        <Header orders={orders} onDelete={deleteOrder} />
+        <Routes>
+          <Route path="/" element={<Main onChoose={chooseCategory} items={currentItems} onAdd={addOrder} />} />
+          <Route path="/cart" element={<Cart orders={orders} onDelete={deleteOrder} />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
     </div>
   );
 }
