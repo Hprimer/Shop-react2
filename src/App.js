@@ -10,7 +10,7 @@ import Registration from "./pages/Registration/Registration";
 
 
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router';
-import Cart from "./pages/cart/Cart";
+import Cart from "./pages/Cart/Cart";
 import Login from "./pages/Login/Login";
 
 
