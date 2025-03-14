@@ -7,10 +7,10 @@ function Main({onChoose, items, onAdd}) {
 	return (
 		<>
 			<Presentation/>
-      <div className='categ_items container'>
-        <Categories onChoose={onChoose} />
-        <Items items={items} onAdd={onAdd} />
-      </div>
+			  <div className='categ_items container'>
+				<Categories onChoose={onChoose} />
+				<Items items={items} onAdd={onAdd} />
+			  </div>
 		</>
 	)
 }

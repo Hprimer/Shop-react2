@@ -33,15 +33,26 @@ h1 .logo{
 	border: 0;
 	transition: transform 0.5s ease;
 
-
-	background: linear-gradient(45deg,
-	#24C6DC,#0959ce,#514A9D);
+	/* background: linear-gradient(45deg,
+	#24C6DC,#0959ce,#514A9D); */
+	background: linear-gradient(45deg, 
+	#24C6DC, #1272ff, #7d73e5);
 	background-size: 200% 200%;
 	animation: gradient 5s ease infinite;
 }
 .reg_btn:hover{
 	transform: scale(1.15);
 	box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+}
+.go_to_login{
+	cursor: pointer;
+	text-align: center;
+	font-weight: 600;
+	transition: all .5s ease;
+}
+.go_to_login:hover{
+	color: #0e61dd;
+	transform: scale(1.03);
 }
 @keyframes gradient{
 	0%{

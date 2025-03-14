@@ -8,6 +8,12 @@ import Footer from './Components/Footer/Footer';
 import Main from "./pages/main/Main";
 import Registration from "./pages/Registration/Registration";
 
+
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router';
+import Cart from "./pages/Cart/Cart";
+import Login from "./pages/Login/Login";
+
+
 function App() {
 
   const [items, setItems] = useState([]); // Все товары
@@ -51,18 +57,69 @@ function App() {
     }
   };
 
-  return (
-    <div className="App">
-      {/* <Registration/> */}
-      <Header orders={orders} onDelete={deleteOrder} />
-      <Main onChoose={chooseCategory} items={currentItems} onAdd={addOrder}/>
-      {/* <Presentation/>
-      <div className='categ_items container'>
-        <Categories onChoose={chooseCategory} />
-        <Items items={currentItems} onAdd={addOrder} />
-      </div> */}
-      <Footer />
-    </div>
+  // return (
+  //   <div className="App">
+  //     {/* <Registration/>
+  //     <Header orders={orders} onDelete={deleteOrder} />
+  //     <Main onChoose={chooseCategory} items={currentItems} onAdd={addOrder}/> */}
+  //     <Registration/>
+  //     <Router>
+  //     <div className="App">
+  //       <Header orders={orders} onDelete={deleteOrder} />
+  //       <Routes>
+  //         <Route path="/" element={<Main onChoose={chooseCategory} items={currentItems} onAdd={addOrder} />} />
+  //         <Route path="/cart" element={<Cart orders={orders} onDelete={deleteOrder} />} />
+  //       </Routes>
+  //       <Footer />
+  //     </div>
+  //   </Router>
+  //   </div>
+  // );
+
+  return (         
+    <Router>
+      <div className="App">                     
+        <Routes>
+          {/*Стартовая страница */}
+          <Route path="/"
+            element={<Navigate to="/login"/>}
+          />
+
+          {/* Страница входа */}
+          <Route path="/login"
+            element={ <Login/>}
+          />
+          {/* Страница регистрация */}
+          <Route path="/register"
+            element={ <Registration/>}
+          />
+
+          {/* Главная страница с товарами */}
+          <Route 
+            path="/main" 
+            element={
+              <>
+                <Header orders={orders} onDelete={deleteOrder} />
+                <Main onChoose={chooseCategory} items={currentItems} onAdd={addOrder} />
+                <Footer />
+              </>
+            } 
+          />
+
+          {/* Страница корзины */}
+           <Route 
+            path="/cart" 
+            element={
+              <>
+                <Header orders={orders} onDelete={deleteOrder} />
+                <Cart orders={orders} onDelete={deleteOrder} />
+                <Footer />
+              </>
+            } 
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

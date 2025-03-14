@@ -9,6 +9,10 @@ body{
   font-weight: 300;
   font-style: normal; 
 }
+.link{
+	text-decoration: none;
+	color: black;
+}
 .wrapper{
 	width: 100%;
 	margin: 50px auto;
