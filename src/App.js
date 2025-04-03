@@ -82,21 +82,21 @@ function App() {
         <Routes>
           {/*Стартовая страница */}
           <Route path="/"
-            element={<Navigate to="/login"/>}
+            element={<Navigate to="/Shop-react2/login"/>}
           />
 
           {/* Страница входа */}
-          <Route path="/login"
+          <Route path="/Shop-react2/login"
             element={ <Login/>}
           />
           {/* Страница регистрация */}
-          <Route path="/register"
+          <Route path="/Shop-react2/register"
             element={ <Registration/>}
           />
 
           {/* Главная страница с товарами */}
           <Route 
-            path="/main" 
+            path="/Shop-react2/main" 
             element={
               <>
                 <Header orders={orders} onDelete={deleteOrder} />
@@ -108,7 +108,7 @@ function App() {
 
           {/* Страница корзины */}
            <Route 
-            path="/cart" 
+            path="/Shop-react2/cart" 
             element={
               <>
                 <Header orders={orders} onDelete={deleteOrder} />

@@ -23,9 +23,12 @@ function Registration() {
 					{/* <label for="email">Введите email:</label> */}
 					<input type="email" placeholder="email" id="email" required/>
 				</div>
-				<button className="reg_btn" type="submit">Регистрация</button>
+				<button className="reg_btn" 
+					type="submit"
+					onClick={() => navigate("/Shop-react2/main")}
+				>Регистрация</button>
 				<div className='go_to_register'
-					onClick={() => navigate("/login")}
+					onClick={() => navigate("/Shop-react2/login")}
 				>на страницу входа</div>
 			</form>
 			</div>
