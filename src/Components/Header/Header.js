@@ -1,12 +1,15 @@
 import React from 'react'
 import { FaShoppingCart } from "react-icons/fa";
+import { MdManageAccounts } from "react-icons/md";
 
 import './Header.css'
 import { Link } from 'react-router';
+import useStore from '../../store/store';
 
 
-function Header({orders, onDelete}) {
+function Header() {
 	//let [cartOpen, setCartOpen] = useState(false) //хук состояния, по умолчанию false (корзина закрыта)
+	const { orders } = useStore();
 	return (
 	<header className='container'>
 		<div className='containr  navbarr'>
@@ -17,24 +20,20 @@ function Header({orders, onDelete}) {
 			</span>
 			
 			<ul className='nav col-8'>
-				<li ><Link to='/Shop-react2/main' className='link'>Главная </Link></li>						
-				<li>Кабинет</li>				
+				<li ><Link to='/Shop-react2/main' className='link'>Главная </Link></li>			
+				<li ><Link to='/Shop-react2/orders' className='link'>Заказы </Link></li>						
+				<li>
+					<Link to='/Shop-react2/profile' className='link profile-icon'>
+						<MdManageAccounts style={{'font-size':20}} />
+						<span style={{'font-size':12}}>Имя</span>
+					</Link>
+				</li>				
 				<li className='cart-link'>
 					<Link to="/Shop-react2/cart" className='link'><FaShoppingCart/>({orders.length})</Link>
-			
-					{/* // onClick={() => setCartOpen(cartOpen = !cartOpen)} 
-					// className={`shop-cart-btn ${cartOpen && 'active'}`}/> */}
-					{/* ///если cartOpen - true, то применяется еще и класс актив */} 
 				</li>
 				<li><Link to='/Shop-react2/login' className='link'>Выход</Link></li>
 			</ul> 
 		</div>
-			{/* {cartOpen && (
-				<div className='shop-cart'>
-					{props.orders.length > 0 ?
-					showOrders(props) : showNothing()}
-				</div>
-			)} */}
 			
 	</header>
 	)

@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 
 import './categories.css'
+import useStore from '../../store/store';
 
 
-function Categories({ onChoose }) {
+function Categories() {
+	const { chooseCategory } = useStore();
+	
   const [categories] = useState([
     { key: "all", name: "Все" },
     { key: "chairs", name: "Стулья" },
@@ -31,7 +34,7 @@ function Categories({ onChoose }) {
 				{categories.map(el =>
 					<div 
 					key={el.key} className='category col' 
-					onClick={() => onChoose(el.key)}> {el.name} </div>
+					onClick={() => chooseCategory(el.key)}> {el.name} </div>
 				)}
 			</div>
 			
