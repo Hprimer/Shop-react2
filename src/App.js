@@ -43,7 +43,7 @@ function App() {
       <div className="App">                     
         <Routes>
           {/*Стартовая страница */}
-          <Route path="/"
+          <Route path="/Shop-react2"
             element={<Navigate to="/Shop-react2/login"/>}
           />
           {/* Страница входа */}
